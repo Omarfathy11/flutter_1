@@ -82,8 +82,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text(widget.title),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  showSearch(context: context, delegate: DataSearch());
+                },
+                icon: Icon(Icons.search))
+          ],
         ),
         body: ListView(
           controller: sc,
@@ -112,5 +117,31 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
         ));
+  }
+}
+
+class DataSearch extends SearchDelegate {
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    return [IconButton(onPressed: () {}, icon: Icon(Icons.close))];
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back));
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    return Container(
+      child: Text('Search Results'),
+    );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    return Center(
+      child: Text("محتوي البحث"),
+    );
   }
 }
