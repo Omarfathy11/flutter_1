@@ -1,4 +1,4 @@
-import 'dart:html';
+
 
 import 'package:flutter/material.dart';
 
@@ -121,27 +121,54 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class DataSearch extends SearchDelegate {
+  List names  = [
+    "omar",
+    "ahmed",
+    "ali",
+    "mohamed",
+    "hazem",
+    "abdo"   
+  ];
   @override
   List<Widget>? buildActions(BuildContext context) {
-    return [IconButton(onPressed: () {}, icon: Icon(Icons.close))];
+    return [IconButton(onPressed: () {query = "";}, icon: Icon(Icons.close))]; // query is it textform in searchdeligt
   }
 
   @override
   Widget? buildLeading(BuildContext context) {
-    return IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back));
+    return IconButton(onPressed: () {close(context, null);}, icon: Icon(Icons.arrow_back)); // to back page
+      
   }
 
   @override
   Widget buildResults(BuildContext context) {
-    return Container(
-      child: Text('Search Results'),
-    );
+    return Text("$query");
+  
   }
 
   @override
-  Widget buildSuggestions(BuildContext context) {
-    return Center(
-      child: Text("محتوي البحث"),
-    );
+  Widget buildSuggestions(BuildContext context) { // to show list names in search
+    
+    List filternames = names.where((element) => element.contains(query)).toList();
+
+    return ListView.builder(
+      itemCount : query== "" ?  names.length : filternames.length,
+      itemBuilder :  (context, i) {
+        return InkWell(
+          onTap: (){
+            query = filternames[i];
+            showResults(context);
+          },
+          child : Container(
+          padding: EdgeInsets.all(10),
+          child:query== "" ? Text(
+            "${names[i]}",
+            style: TextStyle(fontSize: 25),
+            
+        ) : Text("${filternames[i]}" )
+        ));
+    })
+      ;
+
   }
 }

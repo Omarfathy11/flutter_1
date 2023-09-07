@@ -4,50 +4,77 @@ import 'package:flutter/material.dart';
 class Home extends StatelessWidget {
   String title;
 
-  Home(this.title);
+  Home(this.title, {super.key});
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
+    return Scaffold(
+      appBar: AppBar(title: const Text("hi"),),
+      body : Container(
+        child: ListView( 
+          children: [
+            Card(child: ListTile(
+              leading: Image.network("https://www.seiu1000.org/sites/main/files/main-images/camera_lense_0.jpeg"),
+              onTap: (){
+                print("hi");
+
+              },
+              title: Text("camira1"),
+              subtitle: Text("new"),
+              trailing: Text("224 pound"),
+            ),),
+             Card(child: ListTile(
+               leading: Image.network("https://www.seiu1000.org/sites/main/files/main-images/camera_lense_0.jpeg"),
+              onTap: (){
+                print("hi");
+
+              },
+              title: Text("title"),
+              subtitle: Text("subtitle"),
+              trailing: Text("trailing"),
+            ),)
+          ],
+          
+          
+      
+    ))) ;           
+}
+      /*
+       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.adb),
             label: "test",
           ),
-          BottomNavigationBarItem(
+           BottomNavigationBarItem(
             icon: Icon(Icons.call),
             label: "call us",
           ),
-          BottomNavigationBarItem(
+           BottomNavigationBarItem(
             icon: Icon(Icons.map),
             label: "visit us",
           ),
         ],
-      ),
-      appBar: AppBar(
-        title: new Text(title),
-      ),
-      body: new Center(
-        child: CustomButton(),
-      ),
-    );
+      );
+      */
+     
+    
   }
-}
+
 
 class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        final snackBar = SnackBar(content: Text("Hello Gesture"));
+        const snackBar = SnackBar(content: Text("Hello Gesture"));
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
       },
       child: Container(
-        padding: new EdgeInsets.all(18),
+        padding: const EdgeInsets.all(18),
         decoration: BoxDecoration(
             color: Theme.of(context).hoverColor,
-            borderRadius: new BorderRadius.circular(5.5)),
-        child: new Text("First Button"),
+            borderRadius:  BorderRadius.circular(5.5)),
+        child: const Text("First Button"),
       ),
     );
   }
@@ -125,7 +152,23 @@ class CustomButton extends StatelessWidget {
             const Text("hello world"),
           ],
 */
+/*
+ return Scaffold(
+      appBar: AppBar(title: const Text("hi"),),
+      body : Container(
+        // height: 400,
+        child: ListView.separated( 
+          separatorBuilder: (context, i){
+            return Divider(color: Colors.black,); // بيعمل فواصل بين الي  الكوانترز
+          },
 
+          itemCount: persons.length, // number of list
+          itemBuilder :(context, i) { // i => كل صف
+          return Container( 
+             
+          height: 80,
+           color:i.isEven ? Colors.blue : Colors.green, child: Text(persons[i]["name"], textAlign: TextAlign.center,));
+*/
 /*
        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[

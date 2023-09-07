@@ -29,79 +29,51 @@ class LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: AppBar(
-          title: new Text("login app"),
-          backgroundColor: Colors.blue,
-        ),
+    return  Scaffold(
+        
         backgroundColor: Colors.white,
-        body: new Container(
-            alignment: Alignment.topCenter,
-            child: new Column(
+        body: Container(child: ListView(   
+            children:[  Column(
               children: <Widget>[
-                new Image.asset('assets/logo.png'),
-                new Container(
+                 Image.asset('assets/fun-gorilla-3d-illustration.jpg'),
+                 // ignore: sized_box_for_whitespace
+                 Container(
                   height: 180,
                   width: 380,
-                  child: new Column(
+                  child:  Column(
                     children: <Widget>[
-                      new TextField(
+                       TextField(
                         controller: _usernameController,
-                        decoration: new InputDecoration(
+                        decoration:  const InputDecoration(
                           hintText: "username",
-                          icon: new Icon(Icons.person),
+                          icon:  Icon(Icons.person),
                         ),
                       ),
-                      new TextField(
+                     const  SizedBox(height: 20,), // بيعمل تباعد بينهم 
+                       TextField(
                         controller: _passwordController,
-                        decoration: new InputDecoration(
+                        decoration:  const InputDecoration(
                           hintText: "password",
-                          icon: new Icon(Icons.lock),
+                          icon: Icon(Icons.lock),
                         ),
                         obscureText: true, // hashing password
                       ),
-                      new Padding(padding: new EdgeInsets.all(20.0)),
-                      new Center(
-                        child: new Row(
+                       const Padding(padding:  EdgeInsets.all(20.0)),
+                       const Center(
+                        child:  Row(
                           children: <Widget>[
-                            new Container(
-                                margin: const EdgeInsets.only(left: 37.0),
-                                child: new ElevatedButton(
-                                  onPressed: () => _submit(),
-                                  child: new Text(
-                                    "Submit",
-                                    style: new TextStyle(
-                                        color: Colors.white, fontSize: 20.5),
-                                  ),
-                                )),
-                            new Container(
-                                margin: const EdgeInsets.only(left: 137.0),
-                                child: new ElevatedButton(
-                                  onPressed: () => _clear(),
-                                  child: new Text(
-                                    "clear",
-                                    style: new TextStyle(
-                                        color: Colors.white, fontSize: 20.5),
-                                  ),
-                                )),
+                             Text("if you havan't account"),
+                             InkWell(child: Text("click here", style: TextStyle(color: Colors.blue),)),
+                           
+                            
                           ],
                         ),
                       )
                     ],
                   ),
                 ),
-                new Container(
-                  alignment: Alignment.center,
-                  child: new Text(
-                    "welcome , $_welcome",
-                    style: new TextStyle(
-                      color: Colors.blue,
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                )
+               
               ],
-            )));
+    )])));
   }
 }
