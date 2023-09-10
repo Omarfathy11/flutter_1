@@ -8,31 +8,31 @@ class PageDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body:
-         Padding(
+        body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: ListView(
             children: [
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(''),
                   ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor:const  Color.fromARGB(255, 121, 174, 137)),
-                    onPressed: () {
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) {
-                        return LogIn();
-                      }));
-                    },   
-                    child: const Text(
-                      'Back',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromARGB(255, 121, 174, 137)),
+                      onPressed: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return const LogIn();
+                        }));
+                      },
+                      child: Container(
+                        alignment: Alignment.topLeft,
+                        child: const Text(
+                          'Back',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      )),
                   const Text(
                     'Feed',
                     style: TextStyle(
@@ -40,7 +40,7 @@ class PageDetails extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                 const Text(
+                  const Text(
                     'Filter',
                     style: TextStyle(
                         color: Color(0xff5DB075),
@@ -58,18 +58,18 @@ class PageDetails extends StatelessWidget {
                 },
                 style: const TextStyle(fontSize: 16),
                 decoration: InputDecoration(
-                    fillColor: Color(0xffF6F6F6),
+                    fillColor: const Color(0xffF6F6F6),
                     //  fillColor: Colors.amber,
                     filled: true,
                     hintText: "search",
-                    hintStyle:const TextStyle(
+                    hintStyle: const TextStyle(
                         color: Color(0xffBDBDBD),
                         fontSize: 16,
                         fontWeight: FontWeight.w500),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50))),
               ),
-             const SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               const Padding(

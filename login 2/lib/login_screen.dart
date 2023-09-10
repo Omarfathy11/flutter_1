@@ -39,78 +39,76 @@ class LogIn extends StatelessWidget {
                   Icon(Icons.wifi_2_bar_outlined)
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 32,
               ),
               TextField(
                 onChanged: (value) {
                   print(value);
                 },
-                style: TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16),
                 decoration: InputDecoration(
-                    fillColor: Color(0xffF6F6F6),
+                    fillColor:const  Color(0xffF6F6F6),
                     filled: true,
                     hintText: "Email",
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                         color: Color(0xffBDBDBD),
                         fontSize: 16,
                         fontWeight: FontWeight.w500),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50))),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               TextField(
                 onChanged: (value) {
                   print(value);
                 },
-                style: TextStyle(fontSize: 16),
+                style:const  TextStyle(fontSize: 16),
                 decoration: InputDecoration(
-                    fillColor: Color(0xffF6F6F6),
+                    fillColor:const  Color(0xffF6F6F6),
                     //  fillColor: Colors.amber,
                     filled: true,
                     hintText: "password",
-                    hintStyle: TextStyle(
+                    hintStyle:const TextStyle(
                         color: Color(0xffBDBDBD),
                         fontSize: 16,
                         fontWeight: FontWeight.w500),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50))),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 98,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const Text(''),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(255, 121, 174, 137)),
-                    onPressed: () {
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) {
-                        return PageDetails();
-                      }));
-                    },
-                    child: Text(
-                      'LogIn',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 16,
-              ),
-              Expanded(
+                  const Expanded(
                 child: Center(
                     child: Text(
                   "forgot your password?",
                   style: TextStyle(color: Colors.green),
                 )),
-              )
+              ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 121, 174, 137)),
+                    onPressed: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return const PageDetails();
+                      }));
+                    },
+                    child:const Text(
+                      'LogIn',
+                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
+                    ),
+                  )
+                ],
+                
+              ),
+             
             ],
           ),
         ),
