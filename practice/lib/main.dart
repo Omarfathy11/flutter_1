@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'home.dart';
 void main() {
   String title = "Gesture detector";
-  runApp(new MaterialApp(
+  runApp(MaterialApp(
     title: title,
-    home: new Home(title),
+    home: Home(title),
   ));
 }
