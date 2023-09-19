@@ -42,8 +42,8 @@ class SignUpState extends State<SignUp> {
             alignment: Alignment.topCenter,
             child: new Column(
               children: <Widget>[
-                new Image.asset('assets/logo.png'),
-                new Container(
+                 Image.asset('assets/logo.png'),
+                 Container(
                   height: 180,
                   width: 380,
                   child: new Column(
@@ -55,7 +55,7 @@ class SignUpState extends State<SignUp> {
                           icon: new Icon(Icons.person),
                         ),
                       ),
-                      new TextField(
+                       TextField(
                         controller: _passwordController,
                         decoration: new InputDecoration(
                           hintText: "password",
@@ -63,7 +63,7 @@ class SignUpState extends State<SignUp> {
                         ),
                         obscureText: true, // hashing password
                       ),
-                      new TextField(
+                       TextField(
                         controller: _usernameController,
                         decoration: new InputDecoration(
                           hintText: "email",
